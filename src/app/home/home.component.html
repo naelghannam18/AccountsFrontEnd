@@ -1,0 +1,50 @@
+<div class="row m-1">
+  <h1>Customers</h1>
+  <div class="col-md-6">
+    <h2>Create Customer</h2>
+    <div *ngIf="successMessage !== ''" class="alert alert-success">
+      {{ successMessage }}
+    </div>
+    <form #customerForm="ngForm" (ngSubmit)="AddCustomer(customerForm)">
+      <div class="form-group">
+        <label for="name">Customer Name</label>
+        <input
+          required
+          class="form-control m-1"
+          type="text"
+          name="name"
+          min="5"
+          max="30"
+          placeholder="Customer Name"
+          [(ngModel)]="customer.name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="surname">Customer Surname</label>
+        <input
+          required
+          class="form-control m-1"
+          type="text"
+          name="surname"
+          min="5"
+          max="30"
+          placeholder="Customer Surname"
+          [(ngModel)]="customer.surname"
+        />
+      </div>
+      <div>
+        <Button
+          [disabled]="customerForm.invalid"
+          class="btn btn-primary m-1"
+          type="submit"
+          >Create Customer</Button
+        >
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="customers">
+      <app-cutomer-list [customers]="customers"> </app-cutomer-list>
+    </div>
+  </div>
+</div>

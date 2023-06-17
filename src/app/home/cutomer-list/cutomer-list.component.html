@@ -1,0 +1,24 @@
+<div *ngIf="customers">
+    <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Surname</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of customers">
+              <th scope="row">{{customer.id}}</th>
+              <td>{{customer.name}}</td>
+              <td>{{customer.surname}}</td>
+              <td>
+                <button class="btn btn-primary" [routerLink]="['/customer', customer.id]">Go To Customer</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</div>
